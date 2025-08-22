@@ -117,6 +117,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="analysis" class="level1">
 <h1>Analysis</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>gapminder<span class="sc">::</span>gapminder_unfiltered <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lifeExp <span class="sc">==</span> <span class="fu">max</span>(lifeExp)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, country, lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(lifeExp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 60 × 3
+# Groups:   year [58]
+    year country lifeExp
+   &lt;int&gt; &lt;fct&gt;     &lt;dbl&gt;
+ 1  1950 Norway     71.6
+ 2  1951 Norway     72.5
+ 3  1952 Norway     72.7
+ 4  1953 Norway     73.2
+ 5  1954 Iceland    73.4
+ 6  1958 Iceland    73.4
+ 7  1958 Norway     73.4
+ 8  1955 Norway     73.4
+ 9  1957 Iceland    73.5
+10  1956 Norway     73.5
+# ℹ 50 more rows</code></pre>
+</div>
+</div>
 </section>
 
 </main>
