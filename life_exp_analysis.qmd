@@ -4,26 +4,21 @@ format: html
 editor: visual
 ---
 
-
-
-# Abstract
+#### Abstract
 
 Here, i re-examine the analysis of Oeppen and Vaupel (2002)
 
-# Life Expectancy Analysis
-
+#### Life Expectancy Analysis
 
 The code finds, for each year in the Gapminder dataset, the country with the highest life expectancy. It then creates a table showing the year, that country’s name, and the corresponding maximum life expectancy in chronological order.
 
 ```{r}
 library(tidyverse)
 library(gapminder)
-sumdat <- gapminder::gapminder_unfiltered %>%
-  group_by(year) %>%
-  filter(lifeExp == max(lifeExp)) %>%
-  select(year, country, lifeExp) %>%
+sumdat <- gapminder::gapminder_unfiltered |>
+  group_by(year) |>
+  filter(lifeExp == max(lifeExp)) |>
+  select(year, country, lifeExp) |>
   arrange(year)
+sumdat
 ```
-
-
-
